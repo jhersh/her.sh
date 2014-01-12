@@ -1,0 +1,38 @@
+# set the server administrator email
+SetEnv SERVER_ADMIN jon@her.sh
+
+# set the server timezone
+SetEnv TZ America/California
+
+# cache images and flash content for one month
+<FilesMatch ".(flv|gif|jpg|jpeg|png|ico|swf)$">
+Header set Cache-Control "max-age=2592000"
+</FilesMatch>
+
+# secure htaccess file
+<Files .htaccess>
+ order allow,deny
+ deny from all
+</Files>
+
+ErrorDocument 404 /index.html
+
+#RewriteBase /
+#RewriteRule ../index.php$1
+
+RewriteCond %{HTTP_HOST} ^www.her.sh$
+RewriteRule ^.*$ "http\:\/\/her\.sh\/" [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+# BEGIN YOURLS
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /yourls-loader.php [L]
+</IfModule>
+# END YOURLS
+

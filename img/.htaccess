@@ -1,0 +1,8 @@
+IndexIgnore *
+
+Options All -Indexes
+
+# cache images and flash content for one month
+<FilesMatch ".(flv|gif|jpg|jpeg|png|ico|swf)$">
+Header set Cache-Control "max-age=2592000"
+</FilesMatch>
