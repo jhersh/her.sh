@@ -25,5 +25,5 @@ _site/ $SITE \
 s3cmd sync --progress -M --acl-public \
 _site/ $SITE \
 --exclude '*.*' \
---include '*.png' --include '*.css' --include '*.js' --include '*.txt' \
+--include '*.png' --include '*.css' --include '*.js' --include '*.txt' --include '*.gif' \
 --verbose 
