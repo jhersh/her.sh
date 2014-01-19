@@ -123,13 +123,12 @@ ul.contact {
 	margin-bottom: 50px;
 	padding: 10px;
 	text-align: center;
-}
-
-#footer a {
 	color: white;
 	font-family: Futura;
 	font-size: 20px;
+}
 
+#footer a {
 	color: white;
 	text-decoration: none;
 }
