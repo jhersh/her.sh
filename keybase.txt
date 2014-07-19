@@ -1,0 +1,83 @@
+==================================================================
+https://keybase.io/zz
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://her.sh
+  * I am zz (https://keybase.io/zz) on keybase.
+  * I have a public key with fingerprint 24BA BB00 16C8 0CC6 DD01  D0B4 440A 664C FA20 DEC5
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "client": {
+            "name": "keybase.io node.js client",
+            "version": "0.4.11"
+        },
+        "key": {
+            "fingerprint": "24babb0016c80cc6dd01d0b4440a664cfa20dec5",
+            "host": "keybase.io",
+            "key_id": "440A664CFA20DEC5",
+            "uid": "621a43a6a4344e5f717f753f1465a200",
+            "username": "zz"
+        },
+        "merkle_root": {
+            "ctime": 1405811593,
+            "hash": "0159ac78f2f502d0c1c9934d0eab327113e06c89063b341a06b7389991e732961bb8527c3d21dd5f7a23f80cf0719045f0b662e09675682ed38d43664759c4c6",
+            "seqno": 29979
+        },
+        "service": {
+            "hostname": "her.sh",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1405811724,
+    "expire_in": 157680000,
+    "prev": "6ad7bcafd73433e57308ace88d273399cf3bcbbc38bf0d9489483c77d1b8820b",
+    "seqno": 3,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: GnuPG/MacGPG2 v2.0.22 (Darwin)
+Comment: GPGTools - http://gpgtools.org
+
+owFVkg9MFmUcx+HlBQYioBMDBqanIktkz/2/A3zxDxQ5CKjUSQjcPfccXMDdy70v
+KH9nICrOOQUGm1FMczKamZtNSI1yRpoIlJGAmpATDHBoLK0UWHeMVj67PbvneT7P
+9/l+f89zZKGbi7frtD7mTdys73XtGhNd3rk+7VOKiZpUjEWVYjBPQarT/FOFfIRF
+YbmoWBQcKFLRlquahCLfdyyfZyKwIqQ7FE01KBBJReI4Vh5h8uZuWVGzkW7XFVMM
+IyhREEUAcAZyAEJGkgAuAZGiKCAwDAVlgQASgrShmaM5nC8di81pZiqSMWvwGw1+
+8+sbCRAXv9nkC+cWGAIXKFJgjI6iEC2zOCuzNCnjFEMb2sAEHUifz1RSYjrNR3pu
+HsrUNW0uL3Qq5iJOAZrDcZonDS+CI8cMZ4wEyHIyIdOAkADEIc+TlASQIJIEi+Mk
+AkYwHjCkSFK4ABiRJTme53HEkgTP4KLI0QQLSYnAJckwJxCkbNRBBizOA4qWgcgw
+BAI8w9IMRyCJ5CSKNHKyNA8pyBjmHahA1bAogudZvtwc6kUKRKZts17zsXKQHmkY
+jsDsuubUoJZnzjmd9igzrbPYbjK7kJg5vztTVFTpuHFP/79J3EBfrgRLUBEY2m1X
+dJSpmATNMhwwmnkOKjKLL0isCAVZYkmKJBHNkoATIOI4iWBJkuehTIpQFCHJiTKQ
+eIozPhKyrISLHEcA8b98Rs2dQrYh6VCyVcFZqCOsvMYSYnVx9XbxcLeYT9XF28v/
+3/drdfWbWez7yljTka13nxyVLLExHzXg6y03g0bZ2IrS2fbfUuNa4pbeAymjF0+f
++m7ynBx62Bo4UfdU9QvelTzqn7Vi6tTOP2uiPd0XBHrH/b1ai/Z3C2je8BPcP7z9
+duKNKfJ+x7IzM+NhPa3WMz5LqvTQ6uFVz92jZhdVdvzh67V+sk2r8+6MaykveN7c
+s6cvJnqEuTPp7phovEYMrQoJuFDI1wY152yx+jeNPPa1fr747FBZtd90TWznr3Vl
+lY/e2s4H7M1qTcq09ysevnRzQcX5htmWtpAnbfkJibNPdyxcO91+AUjHPRp/efb7
+dP03Ew8PbWnfkIwn3/6gu0HNv3XwAXEtY+hwXVpGYcCCGlebLanyTmJ6fd7OL3th
+zAr7j7b03vHcjBO07fFnhQ/vrRO+VSv/ikm9kn759ICt50053LE33zbY9+6a8Bed
+Kc17Pv6hYFFob9L1tJ+Hn4UmpF+8WzazbdnXmyjBJka92PFVqgs1IBzqiHljao3l
+UrLPsRshD9y6+jyu3ue4zpFqr4R1S9X+JZ5jxSvZ7viT8NPVM69ePVkb3laS1XW2
+KsQ3eCTf0yNssL/WxzctrJt5reJ81qMrasY2/talTw4MHPAMcFsZtHagrent71st
++zvPpQw1+m2ybPXx6BgP5hND/a2DiB3dt2+qCh677NkfVPlF/IeuiUejYdKJ93b7
+Bf4D
+=79V9
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/zz
+
+==================================================================
