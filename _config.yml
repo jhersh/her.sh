@@ -8,6 +8,7 @@ sandbox:
 splinesoft: http://splinesoft.net
 
 mudurl: https://itunes.apple.com/us/app/mudrammer-a-modern-mud-client/id597157072?mt=8
+bequesturl: https://github.com/splinesoft/bequest
 
 exclude: [gems, Gemfile, Gemfile.lock, readme.md, Rakefile, vendor]
 
