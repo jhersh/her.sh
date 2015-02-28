@@ -14,12 +14,13 @@ her.sh is a static site...
 It's super easy to build the site and test it locally:
 
 ```
-jekyll serve --watch
+rake setup
+rake serve
 ```
 
 ### Publishing
 
-`publish.sh` automates the entire deployment process:
+`rake publish` automates the entire deployment process:
 
 1. Generate the site with Jekyll.
 2. GZip HTML files, which can be served compressed directly from S3 for stupendously fast page load times.
