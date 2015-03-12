@@ -6,6 +6,7 @@ task :setup do
     "--with-xslt-include=/usr/local/include "+
     "--with-iconv-dir=/usr/lib "
     sh "bundle check --path=vendor/bundle || bundle install --jobs=4 --retry=2 --path=vendor/bundle"
+    sh "npm list write-good || npm install -g write-good"
 end
 
 task :serve do
@@ -13,12 +14,15 @@ task :serve do
 end
 
 task :publish do
+    
+    Rake::Task["lint"].execute
+    
     system %{
 
         SITE="s3://her.sh/"
 
         bundle exec jekyll build --config _config.yml
-        bundle exec htmlproof --check-favicon --check-html --verbose _site
+        bundle exec htmlproof --check-favicon --check-html _site
 
         find _site/ -iname '*.html' -exec gzip -n --best {} +
         find _site/ -iname '*.xml' -exec gzip -n --best {} +
@@ -45,4 +49,8 @@ task :publish do
         --verbose 
 
     }
+end
+
+task :lint do
+    puts `write-good index.html`
 end
