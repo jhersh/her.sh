@@ -1,16 +1,14 @@
 task :setup do
-    sh "bundle config build.nokogiri --use-system-libraries "+
-    "--with-libxml2lib=/usr/local/Cellar/libxml2/2.9.2/lib "+
-    "--with-xml2-include=/usr/local/Cellar/libxml2/2.9.2/include/libxml2 "+
-    "--with-xslt-lib=/usr/local/lib "+
-    "--with-xslt-include=/usr/local/include "+
-    "--with-iconv-dir=/usr/lib "
     sh "bundle check --path=vendor/bundle || bundle install --jobs=4 --retry=2 --path=vendor/bundle"
     sh "npm list write-good || npm install -g write-good"
 end
 
 task :serve do
     sh "bundle exec jekyll serve --watch --config _config.yml"
+end
+
+task :lint do
+    puts `write-good index.html`
 end
 
 task :publish do
@@ -49,8 +47,4 @@ task :publish do
         --verbose 
 
     }
-end
-
-task :lint do
-    puts `write-good index.html`
 end
