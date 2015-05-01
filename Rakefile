@@ -35,8 +35,8 @@ task :publish do
 
     # Sync GZip'd HTML and XML
 
-    sh "s3cmd sync --progress -M --acl-public "+
-    "--add-header \"Content-Encoding:gzip\" "+
+    sh "s3cmd sync -M --progress --acl-public --recursive --no-mime-magic "+
+    "--add-header='Content-Encoding:gzip' "+
     "_site/ s3://her.sh/ "+
     "--exclude '*.*' "+
     "--include '*.html' --include '*.xml' "+
@@ -44,7 +44,7 @@ task :publish do
 
     # Sync all remaining files
 
-    sh "s3cmd sync --progress -M --acl-public "+
+    sh "s3cmd sync --progress -M --acl-public --recursive "+
     "_site/ s3://her.sh/ "+
     "--exclude '*.*' "+
     "--include '*.png' --include '*.css' --include '*.js' --include '*.txt' --include '*.gif' --include '*.jpeg' "+
