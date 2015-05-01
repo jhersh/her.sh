@@ -1,5 +1,7 @@
 # her dot sh
 
+[![Circle CI](https://circleci.com/gh/jhersh/her.sh.svg?style=svg&circle-token=b14375d9acfaff56b8d07ee03b0fae207b874efa)](https://circleci.com/gh/jhersh/her.sh)
+
 Source for [her.sh](http://her.sh).
 
 ### Architecture
