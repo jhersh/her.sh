@@ -7,20 +7,19 @@ task :serve do
     sh "bundle exec jekyll serve --watch --config _config.yml"
 end
 
+task :build do
+    sh "bundle exec jekyll build --config _config.yml"
+end
+
 task :lint do
+    sh "bundle exec htmlproof --check-favicon --check-html --only-4xx _site"
     puts `write-good index.html`
 end
 
-task :publish do
-    
-    Rake::Task["lint"].execute
-    
+task :publish do    
     system %{
 
         SITE="s3://her.sh/"
-
-        bundle exec jekyll build --config _config.yml
-        bundle exec htmlproof --check-favicon --check-html _site
 
         find _site/ -iname '*.html' -exec gzip -n --best {} +
         find _site/ -iname '*.xml' -exec gzip -n --best {} +
@@ -32,6 +31,8 @@ task :publish do
         # Sync GZip'd HTML and XML
 
         s3cmd sync --progress -M --acl-public \
+        --access_key=$SITE_AWS_KEY \
+        --secret_key=$SITE_AWS_SECRET \
         --add-header 'Content-Encoding:gzip' \
         _site/ $SITE \
         --exclude '*.*' \
@@ -41,6 +42,8 @@ task :publish do
         # Sync all remaining files
 
         s3cmd sync --progress -M --acl-public \
+        --access_key=$SITE_AWS_KEY \
+        --secret_key=$SITE_AWS_SECRET \
         _site/ $SITE \
         --exclude '*.*' \
         --include '*.png' --include '*.css' --include '*.js' --include '*.txt' --include '*.gif' --include '*.jpeg' \
