@@ -19,35 +19,35 @@ end
 task :publish do    
     system %{
 
-        SITE="s3://her.sh/"
-
         find _site/ -iname '*.html' -exec gzip -n --best {} +
         find _site/ -iname '*.xml' -exec gzip -n --best {} +
 
         for f in `find _site/ -iname '*.gz'`; do
             mv $f ${f%.gz}
         done
-
-        # Sync GZip'd HTML and XML
-
-        s3cmd sync --progress -M --acl-public \
-        --access_key=$SITE_AWS_KEY \
-        --secret_key=$SITE_AWS_SECRET \
-        --add-header 'Content-Encoding:gzip' \
-        _site/ $SITE \
-        --exclude '*.*' \
-        --include '*.html' --include '*.xml' \
-        --verbose 
-
-        # Sync all remaining files
-
-        s3cmd sync --progress -M --acl-public \
-        --access_key=$SITE_AWS_KEY \
-        --secret_key=$SITE_AWS_SECRET \
-        _site/ $SITE \
-        --exclude '*.*' \
-        --include '*.png' --include '*.css' --include '*.js' --include '*.txt' --include '*.gif' --include '*.jpeg' \
-        --verbose 
-
     }
+    
+    cmd_extra = "--verbose"
+    
+    if ENV['CIRCLECI'] == 'true'
+        cmd_extra += " --access_key=$SITE_AWS_KEY --secret_key=$SITE_AWS_SECRET"
+    end
+
+    # Sync GZip'd HTML and XML
+
+    sh "s3cmd sync --progress -M --acl-public "+
+    "--add-header \"Content-Encoding:gzip\" "+
+    "_site/ s3://her.sh/ "+
+    "--exclude '*.*' "+
+    "--include '*.html' --include '*.xml' "+
+    "#{cmd_extra}"
+
+    # Sync all remaining files
+
+    sh "s3cmd sync --progress -M --acl-public "+
+    "_site/ s3://her.sh/ "+
+    "--exclude '*.*' "+
+    "--include '*.png' --include '*.css' --include '*.js' --include '*.txt' --include '*.gif' --include '*.jpeg' "+
+    "#{cmd_extra}"
+
 end
