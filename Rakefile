@@ -27,7 +27,7 @@ task :publish do
         done
     }
     
-    cmd_extra = "--verbose"
+    cmd_extra = "--verbose -M --progress --acl-public --recursive"
     
     if ENV['CIRCLECI'] == 'true'
         cmd_extra += " --access_key=$SITE_AWS_KEY --secret_key=$SITE_AWS_SECRET"
@@ -35,7 +35,7 @@ task :publish do
 
     # Sync GZip'd HTML and XML
 
-    sh "s3cmd sync -M --progress --acl-public --recursive --no-mime-magic "+
+    sh "s3cmd sync --no-mime-magic "+
     "--add-header='Content-Encoding:gzip' "+
     "_site/ s3://her.sh/ "+
     "--exclude '*.*' "+
@@ -44,7 +44,7 @@ task :publish do
 
     # Sync all remaining files
 
-    sh "s3cmd sync --progress -M --acl-public --recursive "+
+    sh "s3cmd sync "+
     "_site/ s3://her.sh/ "+
     "--exclude '*.*' "+
     "--include '*.png' --include '*.css' --include '*.js' --include '*.txt' --include '*.gif' --include '*.jpeg' "+
