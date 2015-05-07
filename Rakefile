@@ -35,19 +35,17 @@ task :publish do
 
     # Sync GZip'd HTML and XML
 
-    sh "s3cmd sync --no-mime-magic "+
+    sh "s3cmd sync #{cmd_extra} --no-mime-magic "+
     "--add-header='Content-Encoding:gzip' "+
     "_site/ s3://her.sh/ "+
     "--exclude '*.*' "+
-    "--include '*.html' --include '*.xml' "+
-    "#{cmd_extra}"
+    "--include '*.html' --include '*.xml'"
 
     # Sync all remaining files
 
-    sh "s3cmd sync "+
+    sh "s3cmd sync #{cmd_extra} --no-mime-magic "+
     "_site/ s3://her.sh/ "+
     "--exclude '*.*' "+
-    "--include '*.png' --include '*.css' --include '*.js' --include '*.txt' --include '*.gif' --include '*.jpeg' "+
-    "#{cmd_extra}"
+    "--include '*.png' --include '*.css' --include '*.js' --include '*.txt' --include '*.gif' --include '*.jpeg' "
 
 end
