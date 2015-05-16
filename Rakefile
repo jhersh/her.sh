@@ -46,6 +46,6 @@ task :publish do
     sh "s3cmd sync #{cmd_extra} --no-mime-magic "+
     "_site/ s3://her.sh/ "+
     "--exclude '*.*' "+
-    "--include '*.png' --include '*.css' --include '*.js' --include '*.txt' --include '*.gif' --include '*.jpeg' "
+    "--include '*.png' --include '*.css' --include '*.js' --include '*.txt' --include '*.gif' --include '*.jpeg' --include '*.ico' "
 
 end
