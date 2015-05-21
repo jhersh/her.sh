@@ -21,6 +21,7 @@ task :publish do
 
         find _site/ -iname '*.html' -exec gzip -n --best {} +
         find _site/ -iname '*.xml' -exec gzip -n --best {} +
+        find _site/ -iname '*.css' -exec gzip -n --best {} +
 
         for f in `find _site/ -iname '*.gz'`; do
             mv $f ${f%.gz}
@@ -33,17 +34,21 @@ task :publish do
         cmd_extra += " --access_key=$SITE_AWS_KEY --secret_key=$SITE_AWS_SECRET"
     end
 
-    # Sync GZip'd HTML and XML
-
     sh "s3cmd sync #{cmd_extra} --no-mime-magic "+
     "--add-header='Content-Encoding:gzip' "+
     "_site/ s3://her.sh/ "+
     "--exclude '*.*' "+
     "--include '*.html' --include '*.xml'"
 
-    # Sync all remaining files
+    sh "s3cmd sync #{cmd_extra} --no-mime-magic "+
+    "--add-header='Content-Encoding:gzip' "+
+    "--add-header='Cache-Control:max-age=86400' "+
+    "_site/ s3://her.sh/ "+
+    "--exclude '*.*' "+
+    "--include '*.css' "
 
     sh "s3cmd sync #{cmd_extra} --no-mime-magic "+
+    "--add-header='Cache-Control:max-age=86400' "+
     "_site/ s3://her.sh/ "+
     "--exclude '*.*' "+
     "--include '*.png' --include '*.css' --include '*.js' --include '*.txt' --include '*.gif' --include '*.jpeg' --include '*.ico' "
