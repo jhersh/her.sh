@@ -14,7 +14,7 @@ mudsource: https://github.com/splinesoft/MUDRammer
 bequesturl: https://github.com/splinesoft/bequest
 ciurl: https://circleci.com/gh/jhersh/her.sh
 
-exclude: [.bundle, .git, Gemfile, Gemfile.lock, readme.md, Rakefile, vendor, circle.yml]
+exclude: [.bundle, .git, Gemfile, Gemfile.lock, readme.md, Rakefile, vendor, circle.yml, s3cmd-1.5.2]
 
 author:
   name: Jonathan Hersh

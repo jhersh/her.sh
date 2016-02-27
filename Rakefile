@@ -12,7 +12,7 @@ task :build do
 end
 
 task :lint do
-    sh "bundle exec htmlproof --check-favicon --check-html --only-4xx _site"
+    sh "bundle exec htmlproof --check-favicon --check-html --check-external-hash --only-4xx _site"
     puts `write-good index.html`
 end
 
@@ -34,8 +34,10 @@ task :publish do
         cmd_extra += " --access_key=$SITE_AWS_KEY --secret_key=$SITE_AWS_SECRET"
     end
 
-    sh "s3cmd sync #{cmd_extra} --no-mime-magic "+
+    sh "s3cmd sync #{cmd_extra} --no-mime-magic --no-guess-mime-type "+
+    "--default-mime-type='text/html; charset=utf-8' "+
     "--add-header='Content-Encoding:gzip' "+
+    "--add-header='Content-Type: text/html; charset=utf-8' "+
     "_site/ s3://her.sh/ "+
     "--exclude '*.*' "+
     "--include '*.html' --include '*.xml'"
