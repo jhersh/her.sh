@@ -12,7 +12,7 @@ task :build do
 end
 
 task :lint do
-    sh "bundle exec htmlproof --check-favicon --check-html --check-external-hash --only-4xx _site"
+    sh "bundle exec htmlproofer --check-favicon --check-html --check-external-hash --only-4xx _site"
     puts `write-good index.html`
 end
 
