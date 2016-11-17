@@ -5,7 +5,7 @@ blog: http://list.her.sh
 sandbox:
   url: https://z.her.sh
 
-splinesoft: 
+splinesoft:
   url: http://splinesoft.net
   github: https://github.com/splinesoft
 
@@ -19,8 +19,6 @@ exclude: [.bundle, .git, Gemfile, Gemfile.lock, readme.md, Rakefile, vendor, cir
 author:
   name: Jonathan Hersh
   email: jon@her.sh
-  twitter: https://twitter.com/jhersh
-  adn: https://alpha.app.net/jhersh
   github: https://github.com/jhersh
   linkedin: https://www.linkedin.com/in/jhersh
   pgp: http://her.sh/pgp.txt
