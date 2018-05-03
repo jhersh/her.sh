@@ -1,6 +1,5 @@
 task :setup do
     sh "bundle check --path=vendor/bundle || bundle install --jobs=4 --retry=2 --path=vendor/bundle"
-    sh "npm list write-good || npm install -g write-good"
 end
 
 task :serve do
@@ -13,7 +12,6 @@ end
 
 task :lint do
     sh "bundle exec htmlproofer --check-favicon --check-html --check-external-hash --only-4xx _site"
-    puts `write-good index.html`
 end
 
 task :publish do    
