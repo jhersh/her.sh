@@ -1,6 +1,6 @@
 # her dot sh
 
-[![Circle CI](https://circleci.com/gh/jhersh/her.sh.svg?style=svg&circle-token=b14375d9acfaff56b8d07ee03b0fae207b874efa)](https://circleci.com/gh/jhersh/her.sh)
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/jhersh/her.sh/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/jhersh/her.sh/tree/master)
 
 Source for [her.sh](https://her.sh).
 
