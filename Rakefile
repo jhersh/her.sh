@@ -26,13 +26,9 @@ task :publish do
         done
     }
 
-    cmd_extra = "--verbose -M --progress --acl-public --recursive"
+    cmd_extra = "--verbose -M --progress --acl-public --recursive --no-mime-magic"
 
-    if ENV['CIRCLECI'] == 'true'
-        cmd_extra += " --access_key=$SITE_AWS_KEY --secret_key=$SITE_AWS_SECRET"
-    end
-
-    sh "s3cmd sync #{cmd_extra} --no-mime-magic --no-guess-mime-type "+
+    sh "s3cmd sync #{cmd_extra} --no-guess-mime-type "+
     "--default-mime-type='text/html; charset=utf-8' "+
     "--add-header='Content-Encoding:gzip' "+
     "--add-header='Content-Type: text/html; charset=utf-8' "+
@@ -40,14 +36,14 @@ task :publish do
     "--exclude '*.*' "+
     "--include '*.html' --include '*.xml'"
 
-    sh "s3cmd sync #{cmd_extra} --no-mime-magic "+
+    sh "s3cmd sync #{cmd_extra} "+
     "--add-header='Content-Encoding:gzip' "+
     "--add-header='Cache-Control:max-age=86400' "+
     "_site/ s3://her.sh/ "+
     "--exclude '*.*' "+
     "--include '*.css' "
 
-    sh "s3cmd sync #{cmd_extra} --no-mime-magic "+
+    sh "s3cmd sync #{cmd_extra} "+
     "--add-header='Cache-Control:max-age=86400' "+
     "_site/ s3://her.sh/ "+
     "--exclude '*.*' "+
