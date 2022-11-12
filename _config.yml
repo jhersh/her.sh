@@ -6,7 +6,7 @@ sandbox:
   url: https://z.her.sh
 
 splinesoft:
-  url: http://splinesoft.net
+  url: https://splinesoft.net
   github: https://github.com/splinesoft
 
 mudurl: https://itunes.apple.com/us/app/mudrammer-a-modern-mud-client/id597157072?mt=8
@@ -21,6 +21,5 @@ author:
   email: jon@her.sh
   github: https://github.com/jhersh
   linkedin: https://www.linkedin.com/in/jhersh
-  pgp: https://her.sh/pgp.txt
+  mastodon: https://mastodon.social/@jh
   source: https://github.com/jhersh/her.sh
-  keybase: https://keybase.io/zz

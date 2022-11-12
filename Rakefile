@@ -11,10 +11,10 @@ task :build do
 end
 
 task :lint do
-    sh "bundle exec htmlproofer --check-favicon --check-html --check-external-hash --only-4xx _site"
+    sh "bundle exec htmlproofer --check-external-hash --only-4xx _site"
 end
 
-task :publish do    
+task :publish do
     system %{
 
         find _site/ -iname '*.html' -exec gzip -n --best {} +
@@ -25,9 +25,9 @@ task :publish do
             mv $f ${f%.gz}
         done
     }
-    
+
     cmd_extra = "--verbose -M --progress --acl-public --recursive"
-    
+
     if ENV['CIRCLECI'] == 'true'
         cmd_extra += " --access_key=$SITE_AWS_KEY --secret_key=$SITE_AWS_SECRET"
     end
