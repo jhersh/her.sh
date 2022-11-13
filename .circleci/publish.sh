@@ -2,6 +2,11 @@
 
 set -e
 
+if [ ! -d "_site" ]; then
+  echo "_site folder does not exist!"
+  exit 1
+fi
+
 find _site/ -iname '*.html' -exec gzip -n --best {} +
 find _site/ -iname '*.xml' -exec gzip -n --best {} +
 find _site/ -iname '*.css' -exec gzip -n --best {} +
@@ -41,5 +46,6 @@ _site/ s3://her.sh/ \
 
 curl -s -F token=$PUSHOVER_APP \
 -F user=$PUSHOVER_USER \
--F "message=her.sh deployed!" \
+-F "title=$CIRCLE_PROJECT_REPONAME deployed!" \
+-F "message=Commit $CIRCLE_SHA1 on branch $CIRCLE_BRANCH." \
 https://api.pushover.net/1/messages.json
