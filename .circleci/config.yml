@@ -9,18 +9,12 @@ jobs:
       - JEKYLL_ENV: "production"
     steps:
       - checkout
-      - restore_cache:
-          key: 1-gems-{{ checksum "Gemfile.lock" }}
       - run: rake setup
       - run: rake build
       - run: rake lint
       - persist_to_workspace:
           root: ~/her.sh
           paths: _site
-      - save_cache:
-          key: 1-gems-{{ checksum "Gemfile.lock" }}
-          paths:
-            - vendor/bundle
 
   deploy:
     docker:
@@ -35,13 +29,13 @@ jobs:
           at: ~/her.sh
       - run: sh .circleci/publish.sh
 
-
 workflows:
   version: 2
   build_and_deploy:
     jobs:
       - build
       - deploy:
+          context: Pushover
           requires:
             - build
           filters:

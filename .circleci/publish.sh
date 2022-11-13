@@ -38,3 +38,8 @@ _site/ s3://her.sh/ \
 --include '*.png' --include '*.css' --include '*.js' \
 --include '*.txt' --include '*.gif' --include '*.jpeg' \
 --include '*.ico'
+
+curl -s -F token=$PUSHOVER_APP \
+-F user=$PUSHOVER_USER \
+-F "message=her.sh deployed!" \
+https://api.pushover.net/1/messages.json
