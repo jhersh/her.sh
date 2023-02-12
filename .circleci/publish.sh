@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-set -e
+set -eo
 
 if [ ! -d "_site" ]; then
   echo "_site folder does not exist!"
