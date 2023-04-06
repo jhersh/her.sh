@@ -1,6 +1,6 @@
 # her dot sh
 
-[![CircleCI](https://dl.circleci.com/status-badge/img/gh/jhersh/her.sh/tree/master.svg?style=svg)](https://dl.circleci.com/status-badge/redirect/gh/jhersh/her.sh/tree/master)
+![Action status](https://github.com/jhersh/her.sh/actions/workflows/herdotsh.yml/badge.svg)
 
 Source for [her.sh](https://her.sh).
 
