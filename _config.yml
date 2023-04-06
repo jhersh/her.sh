@@ -12,7 +12,7 @@ splinesoft:
 mudurl: https://itunes.apple.com/us/app/mudrammer-a-modern-mud-client/id597157072?mt=8
 mudsource: https://github.com/splinesoft/MUDRammer
 bequesturl: https://github.com/splinesoft/bequest
-ciurl: https://circleci.com/gh/jhersh/her.sh
+ciurl: https://github.com/jhersh/her.sh/actions
 
 exclude: [.bundle, .git, Gemfile, Gemfile.lock, readme.md, Rakefile, vendor, .github, scripts]
 
