@@ -23,7 +23,7 @@ rake serve
 
 ### Publishing
 
-The site is deployed to S3 by CircleCI, using [s3cmd](http://s3tools.org/s3cmd), a handy command-line tool for S3.
+The site is deployed to S3 by [Github Actions](https://github.com/jhersh/her.sh/actions), using [s3cmd](http://s3tools.org/s3cmd), a handy command-line tool for S3.
 
 ### Thanks!
 
