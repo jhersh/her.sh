@@ -29,10 +29,17 @@ s3cmd sync --verbose -M --progress --acl-public \
 --recursive --access_key=$SITE_AWS_KEY \
 --secret_key=$SITE_AWS_SECRET --no-mime-magic \
 --add-header='Content-Encoding:gzip' \
---add-header='Cache-Control:max-age=86400' \
 _site/ s3://her.sh/ \
 --exclude '*.*' \
 --include '*.css'
+
+s3cmd --recursive modify \
+--access_key=$SITE_AWS_KEY \
+--secret_key=$SITE_AWS_SECRET \
+--add-header='Cache-Control: max-age=60' \
+s3://her.sh/ \
+--exclude '*.*' \
+--include '*.html' --include '*.xml' --include '*.css'
 
 s3cmd sync --verbose -M --progress --acl-public \
 --recursive --access_key=$SITE_AWS_KEY \
